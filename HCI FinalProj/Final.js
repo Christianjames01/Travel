@@ -1,185 +1,205 @@
-let searchBtn = document.querySelector('#search-btn');
-let searchBar = document.querySelector('.search-bar-container');
-let formBtn = document.querySelector('#login-btn');
-let loginForm = document.querySelector('.login-form-container');
-let formClose = document.querySelector('#form-close');
-let menu = document.querySelector('#menu-bar');
-let navbar = document.querySelector('.navbar');
-let videoBtn = document.querySelectorAll('.vid-btn');
+/* ===========================
+   WANDERLUX — Final.js
+   =========================== */
 
-window.onscroll = () =>{
-    searchBtn.classList.remove('fa-times');
-    searchBar.classList.remove('active');
-    menu.classList.remove('fa-times');
+// ── HEADER SCROLL EFFECT ──
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.style.background = window.scrollY > 50
+    ? 'rgba(10,10,10,0.98)'
+    : 'rgba(10,10,10,0.9)';
+});
+
+// ── MOBILE MENU ──
+const menuBar = document.getElementById('menu-bar');
+const navbar = document.querySelector('.navbar');
+
+menuBar.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navbar.classList.toggle('active');
+});
+
+document.addEventListener('click', (e) => {
+  if (!navbar.contains(e.target) && !menuBar.contains(e.target)) {
     navbar.classList.remove('active');
-    loginForm.classList.remove('active');
+  }
+});
+
+// ── SEARCH BAR ──
+const searchBtn = document.getElementById('search-btn');
+const searchWrap = document.getElementById('search-bar-wrap');
+
+searchBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  searchWrap.classList.toggle('active');
+  if (searchWrap.classList.contains('active')) {
+    document.getElementById('search-bar').focus();
+  }
+});
+
+// ── LOGIN MODAL ──
+const loginBtn = document.getElementById('login-btn');
+const loginOverlay = document.getElementById('login-overlay');
+const formClose = document.getElementById('form-close');
+
+loginBtn.addEventListener('click', () => loginOverlay.classList.add('active'));
+formClose.addEventListener('click', () => loginOverlay.classList.remove('active'));
+loginOverlay.addEventListener('click', (e) => {
+  if (e.target === loginOverlay) loginOverlay.classList.remove('active');
+});
+
+// ── HERO SLIDESHOW ──
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slide-dot');
+let currentSlide = 0;
+let slideInterval;
+
+function goToSlide(index) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = index;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
 }
 
-menu.addEventListener('click', () =>{
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-    
+function nextSlide() {
+  goToSlide((currentSlide + 1) % slides.length);
+}
+
+function startAutoSlide() {
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    clearInterval(slideInterval);
+    goToSlide(i);
+    startAutoSlide();
+  });
 });
 
-searchBtn.addEventListener('click', () =>{
-    searchBtn.classList.toggle('fa-times');
-    searchBar.classList.toggle('active');
-});
+startAutoSlide();
 
-formBtn.addEventListener('click', () =>{
-    loginForm.classList.add('active');
-});
- 
-formClose.addEventListener('click', () =>{
-    loginForm.classList.remove('active');
-});
-
-videoBtn.forEach(btn =>{
-    btn.addEventListener('click', ()=>{
-        document.querySelector('.controls .active').classList.remove('active');
-        btn.classList.add('active');
-        let src = btn.getAttribute('data-src');
-        document.querySelector('#video-slider').src = src;
-    });
-});
-
-var swiper = new Swiper(".review-slider", {
-    spaceBetween: 20,
-    loop:true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        640: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-    },
-});
-
-var swiper = new Swiper(".brand-slider", {
-    spaceBetween: 20,
-    loop:true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        450: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 3,
-        },
-        991: {
-          slidesPerView: 4,
-        },
-        1200: {
-          slidesPerView: 5,
-        },
-       },
-});
-// Select the form element
-const bookingForm = document.querySelector('#booking-form');
-// Select the tbody element of the booking table
-const bookingTableBody = document.querySelector('#booking-table tbody');
-
-// Retrieve existing bookings from localStorage or initialize as empty array
-let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-
-// Render all bookings in the table
-bookings.forEach((booking, index) => {
-  const row = document.createElement('tr');
-  row.innerHTML = `
-    <td>${booking.placeName}</td>
-    <td>${booking.numOfGuests}</td>
-    <td>${booking.arrivalDate}</td>
-    <td>${booking.leavingDate}</td>
-    <td><button class="delete-btn" data-index="${index}">Delete</button></td>
-  `;
-  bookingTableBody.appendChild(row);
-});
-
-// Add event listener for form submission
-bookingForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // prevent form from reloading the page
-
-  // Get input values
-  const placeName = document.querySelector('#place-name-input').value;
-  const numOfGuests = document.querySelector('#num-of-guests-input').value;
-  const arrivalDate = document.querySelector('#arrival-date-input').value;
-  const leavingDate = document.querySelector('#leaving-date-input').value;
-
-  // Check if leaving date is before or equal to arrival date
-  if (new Date(leavingDate) <= new Date(arrivalDate)) {
-    alert('The leaving date must be after the arrival date.');
-    return; // exit the function and prevent further processing
+// ── SWIPER REVIEWS ──
+new Swiper('.review-slider', {
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 1,
+  autoplay: { delay: 4500, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  breakpoints: {
+    640: { slidesPerView: 1 },
+    900: { slidesPerView: 2 },
+    1200: { slidesPerView: 3 }
   }
+});
 
-  // Create a new booking object
-  const booking = {
-    placeName,
-    numOfGuests,
-    arrivalDate,
-    leavingDate
-  };
+// ── BOOKING FORM ──
+const bookingForm = document.getElementById('booking-form');
+const bookingTableBody = document.querySelector('#booking-table tbody');
+const emptyState = document.getElementById('empty-state');
+const tableWrap = document.querySelector('.table-wrap');
 
-  // Add the new booking to the array
-  bookings.push(booking);
+let bookings = [];
 
-  // Store updated bookings array in localStorage
-  localStorage.setItem('bookings', JSON.stringify(bookings));
-
-  // Optional: display confirmation message to user
-  alert('Booking successful!');
-
-  // Clear the form inputs
-  bookingForm.reset();
-
-  // Clear the booking table body
+function renderBookings() {
   bookingTableBody.innerHTML = '';
 
-  // Render all bookings in the table
-  renderBookings();
-});
+  if (bookings.length === 0) {
+    emptyState.style.display = 'block';
+    tableWrap.style.display = 'none';
+    return;
+  }
 
-// Function to delete a booking from the array, local storage, and table
-function deleteBooking(index) {
-  bookings.splice(index, 1); // remove the booking from the array
-  localStorage.setItem('bookings', JSON.stringify(bookings)); // update localStorage
-  renderBookings(); // update the table with the remaining bookings
-}
+  emptyState.style.display = 'none';
+  tableWrap.style.display = 'block';
 
-// Function to render all bookings in the table
-function renderBookings() {
-  bookingTableBody.innerHTML = ''; // clear the table body
-
-  bookings.forEach((booking, index) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${booking.placeName}</td>
-      <td>${booking.numOfGuests}</td>
-      <td>${booking.arrivalDate}</td>
-      <td>${booking.leavingDate}</td>
-      <td><button class="delete-btn" data-index="${index}">Delete</button></td>
+  bookings.forEach((b, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${b.place}</td>
+      <td>${b.guests} guest${b.guests !== 1 ? 's' : ''}</td>
+      <td>${formatDate(b.arrival)}</td>
+      <td>${formatDate(b.leaving)}</td>
+      <td><button onclick="deleteBooking(${i})">Cancel</button></td>
     `;
-    bookingTableBody.appendChild(row);
+    bookingTableBody.appendChild(tr);
   });
 }
 
-// Add event listener for delete buttons
-bookingTableBody.addEventListener('click', (e) => {
-  if (e.target && e.target.matches('.delete-btn')) {
-    const index = e.target.dataset.index;
-    deleteBooking(index);
+function formatDate(dateStr) {
+  if (!dateStr) return '—';
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+window.deleteBooking = function(index) {
+  bookings.splice(index, 1);
+  renderBookings();
+};
+
+bookingForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const place = document.getElementById('place-name-input').value.trim();
+  const guests = parseInt(document.getElementById('num-of-guests-input').value);
+  const arrival = document.getElementById('arrival-date-input').value;
+  const leaving = document.getElementById('leaving-date-input').value;
+
+  if (!place || !guests || !arrival || !leaving) {
+    alert('Please fill in all fields.');
+    return;
   }
+
+  if (new Date(leaving) <= new Date(arrival)) {
+    alert('Departure date must be after arrival date.');
+    return;
+  }
+
+  bookings.push({ place, guests, arrival, leaving });
+  renderBookings();
+  bookingForm.reset();
+
+  // Scroll to details section
+  document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
 });
 
-// Call renderBookings() on page load to display any existing bookings
+// Initial render
 renderBookings();
+
+// ── CONTACT FORM ──
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.btn-primary');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+    btn.style.background = '#2ecc71';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.style.background = '';
+      btn.style.color = '';
+      contactForm.reset();
+    }, 3000);
+  });
+}
+
+// ── INTERSECTION OBSERVER (fade in sections) ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .gallery-card, .review-card, .stat').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});

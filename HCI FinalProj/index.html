@@ -3,502 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>complete responsive tour and travel agency website design tutorial</title>
-
+    <title>Wanderlux — Curated Travel Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-    <!-- font awesome cdn link hello -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- custom css file link  -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    
-<!-- header section starts  -->
 
-<header>
+<!-- HEADER -->
+<header id="header">
+    <div class="header-inner">
+        <div id="menu-bar"><i class="fas fa-bars"></i></div>
 
-    <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="#home" class="logo">WANDERLUX</a>
 
-    <a href="#" class="logo"><span>T</span>ravel</a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#book">Book</a>
+            <a href="#packages">Details</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#review">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-    <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#book">book</a>
-        <a href="#packages">details</a>
-        <a href="#services">services</a>
-        <a href="#gallery">gallery</a>
-        <a href="#review">review</a>
-        <a href="#contact">contact</a>
-    </nav>
-
-    <div class="icons">
-        <i class="fas fa-search" id="search-btn"></i>
-        <i class="fas fa-user" id="login-btn"></i>
+        <div class="header-icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
     </div>
 
-    <form action="" class="search-bar-container">
-        <input type="search" id="search-bar" placeholder="search here...">
-        <label for="search-bar" class="fas fa-search"></label>
-    </form>
-
+    <div class="search-bar-container" id="search-bar-wrap">
+        <input type="search" id="search-bar" placeholder="Search destinations…">
+        <i class="fas fa-search"></i>
+    </div>
 </header>
 
-<!-- header section ends -->
-
-<!-- login form container  -->
-
-<div class="login-form-container">
-
-    <i class="fas fa-times" id="form-close"></i>
-
-    <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="enter your email">
-        <input type="password" class="box" placeholder="enter your password">
-        <input type="submit" value="login now" class="btn">
-        <input type="checkbox" id="remember">
-        <label for="remember">remember me</label>
-        <p>forget password? <a href="#">click here</a></p>
-        <p>don't have and account? <a href="#">register now</a></p>
-    </form>
-
+<!-- LOGIN MODAL -->
+<div class="login-overlay" id="login-overlay">
+    <div class="login-modal">
+        <button class="modal-close" id="form-close"><i class="fas fa-times"></i></button>
+        <div class="modal-left">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Mountain">
+            <div class="modal-left-text">
+                <h2>Hello, Traveller</h2>
+                <p>Sign in to manage your upcoming adventures.</p>
+            </div>
+        </div>
+        <form class="modal-form">
+            <h3>Sign In</h3>
+            <label>Email</label>
+            <input type="email" class="form-input" placeholder="you@example.com">
+            <label>Password</label>
+            <input type="password" class="form-input" placeholder="••••••••">
+            <div class="form-row">
+                <label class="remember-label"><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn-primary full-w">Sign In</button>
+            <p class="switch-auth">No account? <a href="#">Register free</a></p>
+        </form>
+    </div>
 </div>
 
-<!-- home section starts  -->
-
-<section class="home" id="home">
-
-    <div class="content">
-        <h3>adventure is worthwhile</h3>
-        <p>dicover new places with us, adventure awaits</p>
-        <a href="#" class="btn">discover more</a>
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-slides">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=80')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1800&q=80')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1800&q=80')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=1800&q=80')"></div>
     </div>
-
-    <div class="controls">
-        <span class="vid-btn active" data-src="vid-1.mp"></span>
-        <span class="vid-btn" data-src="vid-2.mp4"></span>
-        <span class="vid-btn" data-src="vid-3.mp4"></span>
-        <span class="vid-btn" data-src="vid-4.mp4"></span>
-        <span class="vid-btn" data-src="vid-5.mp4"></span>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="hero-eyebrow">Premium Travel Experiences</span>
+        <h1>Adventure Is<br><em>Worthwhile</em></h1>
+        <p>Discover handpicked destinations crafted for the modern explorer.</p>
+        <a href="#book" class="btn-primary">Start Your Journey</a>
     </div>
-
-    <div class="video-container">
-        <video src="vid-1.mp4" id="video-slider" loop autoplay muted></video>
+    <div class="slide-controls">
+        <button class="slide-dot active" data-index="0"></button>
+        <button class="slide-dot" data-index="1"></button>
+        <button class="slide-dot" data-index="2"></button>
+        <button class="slide-dot" data-index="3"></button>
     </div>
-
+    <div class="scroll-hint"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
 </section>
 
-<!-- home section ends -->
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="stat"><span class="stat-num">12K+</span><span>Happy Travellers</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">180+</span><span>Destinations</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">98%</span><span>Satisfaction Rate</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">15</span><span>Years of Excellence</span></div>
+</div>
 
-<!-- book section starts  -->
-
+<!-- BOOK -->
 <section class="book" id="book">
-    <h1 class="heading">
-        <span>b</span>
-        <span>o</span>
-        <span>o</span>
-        <span>k</span>
-        <span class="space"></span>
-        <span>n</span>
-        <span>o</span>
-        <span>w</span>
-    </h1>
-
-    <div class="row">
-        <div class="image">
-          <img src="book-img.svg" alt="">
+    <div class="section-label">Plan Your Trip</div>
+    <h2 class="section-title">Book <em>Now</em></h2>
+    <div class="book-row">
+        <div class="book-image">
+            <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=700&q=80" alt="Travel planning">
+            <div class="book-image-badge"><i class="fas fa-award"></i> Best Price Guarantee</div>
         </div>
-      
-        <form id="booking-form">
-          <div class="inputBox">
-            <h3>where to</h3>
-            <input type="text" placeholder="place name" id="place-name-input">
-          </div>
-          <div class="inputBox">
-            <h3>how many</h3>
-            <input type="number" placeholder="number of guests" id="num-of-guests-input">
-          </div>
-          <div class="inputBox">
-            <h3>arrivals</h3>
-            <input type="date" id="arrival-date-input">
-          </div>
-          <div class="inputBox">
-            <h3>leaving</h3>
-            <input type="date" id="leaving-date-input">
-          </div>
-          <input type="submit" class="btn" value="book now">
+        <form id="booking-form" class="book-form">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Where to?</label>
+                    <input type="text" id="place-name-input" placeholder="e.g. Santorini, Greece">
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-users"></i> Guests</label>
+                    <input type="number" id="num-of-guests-input" placeholder="Number of guests" min="1">
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-plane-arrival"></i> Arrival</label>
+                    <input type="date" id="arrival-date-input">
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-plane-departure"></i> Departure</label>
+                    <input type="date" id="leaving-date-input">
+                </div>
+            </div>
+            <button type="submit" class="btn-primary full-w">Reserve Now <i class="fas fa-arrow-right"></i></button>
         </form>
-      </div>
-        
+    </div>
+</section>
 
-<!-- book section ends -->
-
-<!-- packages section starts  -->
-
+<!-- BOOKING DETAILS TABLE -->
 <section class="packages" id="packages">
-    
-    <h1 class="heading">
-        <span>B</span>
-        <span>-</span>
-        <span>d</span>
-        <span>e</span>
-        <span>t</span>
-        <span>a</span>
-        <span>i</span>
-        <span>l</span>
-        <span>s</span>
-        
-        <div id="booking-section">
-            <h2>Booking Details</h2>
+    <div class="section-label">My Trips</div>
+    <h2 class="section-title">Booking <em>Details</em></h2>
+    <div id="booking-section">
+        <p class="empty-state" id="empty-state">No bookings yet. Reserve your first adventure above!</p>
+        <div class="table-wrap">
             <table id="booking-table">
-              <thead>
-                <tr>
-                  <th>Place Name</th>
-                  <th>Number of Guests</th>
-                  <th>Arrival Date</th>
-                  <th>Leaving Date</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Guests</th>
+                        <th>Arrival</th>
+                        <th>Departure</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
-          </div>
+        </div>
+    </div>
 </section>
 
-<!-- packages section ends -->
-
-<!-- services section starts  -->
-
+<!-- SERVICES -->
 <section class="services" id="services">
-
-    <h1 class="heading">
-        <span>s</span>
-        <span>e</span>
-        <span>r</span>
-        <span>v</span>
-        <span>i</span>
-        <span>c</span>
-        <span>e</span>
-        <span>s</span>
-    </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <i class="fas fa-hotel"></i>
-            <h3>affordable hotels</h3>
-            <p>We have lots of affordable hotels for you all over the world!! So what are you waiting for, Just Enjoy Your Life WITHOUT SPENDING MUCH.</p>
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our <em>Services</em></h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-hotel"></i></div>
+            <h3>Luxury Hotels</h3>
+            <p>Handpicked stays from boutique hideaways to 5-star resorts — all at unbeatable rates.</p>
         </div>
-        <div class="box">
-            <i class="fas fa-utensils"></i>
-            <h3>food and drinks</h3>
-            <p>You will get all kinds of food and drinks like Mexican, Indian, Chinese, Italian... at very reasonable prices.</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-utensils"></i></div>
+            <h3>Culinary Journeys</h3>
+            <p>Savor authentic local cuisine and exclusive dining experiences curated by our food experts.</p>
         </div>
-        <div class="box">
-            <i class="fas fa-bullhorn"></i>
-            <h3>safty guide</h3>
-            <p>Travelling with us has never been safer. We always ensure our customers are secure and practice caution and safeguarding measures when travelling.</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Safety First</h3>
+            <p>Travel with complete peace of mind. Our 24/7 concierge team has every detail covered.</p>
         </div>
-        <div class="box">
-            <i class="fas fa-globe-asia"></i>
-            <h3>around the world</h3>
-            <p>When it comes to destinations, the only limit is your imagination as we have expanded our services to being able to fly customers anywhere they want in the world.</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-globe"></i></div>
+            <h3>Global Reach</h3>
+            <p>Over 180 destinations across 6 continents. Wherever you dream of going, we'll take you there.</p>
         </div>
-        <div class="box">
-            <i class="fas fa-plane"></i>
-            <h3>fastest travel</h3>
-            <p>Long, tedious flights not your thing? No worries! Some of the fastest flights we have can take you to a luxury, serene location in just one hour!</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Express Travel</h3>
+            <p>Priority bookings, fast-track boarding, and express check-ins — because your time is precious.</p>
         </div>
-        <div class="box">
-            <i class="fas fa-hiking"></i>
-            <h3>adventures</h3>
-            <p>Life is too short to not take the opportunity of having an adventure when it comes along and we can guarantee you will never regret your decision.</p>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-hiking"></i></div>
+            <h3>Adventures</h3>
+            <p>From jungle treks to ocean dives, our adventure packages push the boundaries of the ordinary.</p>
         </div>
-
     </div>
-
 </section>
 
-<!-- services section ends -->
-
-<!-- gallery section starts  -->
-
+<!-- GALLERY -->
 <section class="gallery" id="gallery">
-
-    <h1 class="heading">
-        <span>g</span>
-        <span>a</span>
-        <span>l</span>
-        <span>l</span>
-        <span>e</span>
-        <span>r</span>
-        <span>y</span>
-    </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="paris.jpg" alt="">
-            <div class="content">
-                <h3>Paris</h3>
-                <p>Paris, the city of Lights, the fashion capital, the city of Love.</p>
-                <a href="#" class="btn">see more</a>
+    <div class="section-label">Destinations</div>
+    <h2 class="section-title">Explore the <em>World</em></h2>
+    <div class="gallery-grid">
+        <div class="gallery-card large">
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=900&q=80" alt="Paris">
+            <div class="gallery-info">
+                <h3>Paris, France</h3>
+                <p>The city of lights, romance, and haute couture.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="enchanted kingdom.jpg" alt="">
-            <div class="content">
-                <h3>Enchanted Kingdom</h3>
-                <p>Enchanted Kingdom, is a theme park in the Philippines. It is located in Santa Rosa, Laguna. It has a land area of 25 hectares. </p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=700&q=80" alt="London">
+            <div class="gallery-info">
+                <h3>London, UK</h3>
+                <p>Royal history meets cutting-edge culture.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="london.jpg" alt="">
-            <div class="content">
-                <h3>London</h3>
-                <p>London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times.</p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1538970272646-f61fabb3a8a2?w=700&q=80" alt="Kyoto">
+            <div class="gallery-info">
+                <h3>Kyoto, Japan</h3>
+                <p>Ancient temples wrapped in cherry blossoms.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="New york.jpg" alt="">
-            <div class="content">
-                <h3>New York</h3>
-                <p>New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean.</p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?w=700&q=80" alt="Santorini">
+            <div class="gallery-info">
+                <h3>Santorini, Greece</h3>
+                <p>White-washed villages cascading to the Aegean.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="italy.webp" alt="">
-            <div class="content">
-                <h3>Italy</h3>
-                <p>Topping off the list of most popular tourist attractions is the Colosseum which is no big surprise for those with it on their bucket list.</p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=700&q=80" alt="New York">
+            <div class="gallery-info">
+                <h3>New York, USA</h3>
+                <p>The city that never sleeps, always inspires.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="rio.webp" alt="">
-            <div class="content">
-                <h3>Brazil</h3>
-                <p>Christ the Redeemer, Portuguese Cristo Redentor, colossal statue of Jesus Christ at the summit of Mount Corcovado, Rio de Janeiro, southeastern Brazil. </p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card large-bottom">
+            <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=900&q=80" alt="Maldives">
+            <div class="gallery-info">
+                <h3>Maldives</h3>
+                <p>Overwater bungalows and crystalline lagoons.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="palawan.webp" alt="">
-            <div class="content">
-                <h3>Philippines</h3>
-                <p>Palawan, officially the Province of Palawan, is an archipelagic province of the Philippines that is located in the region of Mimaropa.</p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=700&q=80" alt="Rio">
+            <div class="gallery-info">
+                <h3>Rio de Janeiro</h3>
+                <p>Vibrant carnival spirit meets dramatic landscapes.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="box">
-            <img src="kyoto.jpg" alt="">
-            <div class="content">
-                <h3>Japan</h3>
-                <p>Kyoto, once the capital of Japan, is a city on the island of Honshu. It's famous for its numerous classical Buddhist temples. </p>
-                <a href="#" class="btn">see more</a>
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=700&q=80" alt="Palawan">
+            <div class="gallery-info">
+                <h3>Palawan, Philippines</h3>
+                <p>Emerald lagoons and pristine island paradise.</p>
+                <a href="#" class="gallery-link">Explore <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-       
-
     </div>
-
 </section>
 
-<!-- gallery section ends -->
-
-<!-- review section starts  -->
-
+<!-- REVIEWS -->
 <section class="review" id="review">
-
-    <h1 class="heading">
-        <span>r</span>
-        <span>e</span>
-        <span>v</span>
-        <span>i</span>
-        <span>e</span>
-        <span>w</span>
-    </h1>
-
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">Traveller <em>Stories</em></h2>
     <div class="swiper-container review-slider">
-
         <div class="swiper-wrapper">
-
             <div class="swiper-slide">
-                <div class="box">
-                    <img src="aaron.jpg" alt="">
-                    <h3>Aaron Badolato</h3>
-                    <p>I had an amazing experience staying at this hotel. From the moment I arrived, the staff was friendly and accommodating. The room was clean and spacious with beautiful views of the city. The location was perfect, just steps away from all the major attractions. The breakfast buffet was also delicious with a wide variety of options to choose from. 
-                        I would highly recommend this hotel to anyone looking for a comfortable and convenient stay in the city.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                <div class="review-card">
+                    <div class="review-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>From the moment we arrived, everything was flawless. The hotel selection was extraordinary, and our guide knew every hidden gem in the city. Wanderlux turned our anniversary into something truly magical.</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Aaron">
+                        <div>
+                            <strong>Christian James</strong>
+                            <span>Paris, France</span>
+                        </div>
                     </div>
+                    <div class="stars">★★★★★</div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="box">
-                    <img src="147.jpg" alt="">
-                    <h3>Jasmin Nicole</h3>
-                    <p> I had an amazing experience at this hotel! The staff was incredibly friendly and accommodating, the room was clean and comfortable, and the location was perfect for exploring the city. 
-                        I would highly recommend staying here."</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                <div class="review-card">
+                    <div class="review-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>Booked a last-minute trip to Kyoto and the team pulled off the impossible. Ryokan accommodation, private tea ceremony, bullet train passes — all sorted within 24 hours. Absolutely incredible service.</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Jasmin">
+                        <div>
+                            <strong>Eliah Ompad</strong>
+                            <span>Kyoto, Japan</span>
+                        </div>
                     </div>
+                    <div class="stars">★★★★★</div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="box">
-                    <img src="john.JPG" alt="">
-                    <h3>John Denver</h3>
-                    <p> This tour was absolutely fantastic! Our guide was knowledgeable and engaging, and we got to see some truly breathtaking sights. I would definitely book this tour again if I had the chance.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                <div class="review-card">
+                    <div class="review-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>The Maldives package exceeded every expectation. Our overwater villa was breathtaking and the reef snorkelling at dawn was a once-in-a-lifetime moment. Wanderlux knows how to do luxury right.</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="John">
+                        <div>
+                            <strong>Clark Tuyan</strong>
+                            <span>Maldives</span>
+                        </div>
                     </div>
+                    <div class="stars">★★★★★</div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="box">
-                    <img src="clint.jpg" alt="">
-                    <h3>Clint Joseph</h3>
-                    <p> The airline staff were efficient and friendly, but the plane itself was cramped and uncomfortable. The in-flight entertainment was also lacking. 
-                        Overall, I was disappointed with my experience and would consider a different airline for future flights.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                <div class="review-card">
+                    <div class="review-quote"><i class="fas fa-quote-left"></i></div>
+                    <p>Three cities, one seamless trip. Wanderlux coordinated our entire European tour across Paris, Rome, and Barcelona without a single hiccup. Their attention to detail is unrivalled in the industry.</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Clint">
+                        <div>
+                            <strong>Dave Cabangal</strong>
+                            <span>European Tour</span>
+                        </div>
                     </div>
+                    <div class="stars">★★★★☆</div>
                 </div>
             </div>
-
         </div>
-
+        <div class="swiper-pagination"></div>
     </div>
-
 </section>
 
-<!-- review section ends -->
-
-<!-- contact section starts  -->
-
+<!-- CONTACT -->
 <section class="contact" id="contact">
-    
-    <h1 class="heading">
-        <span>c</span>
-        <span>o</span>
-        <span>n</span>
-        <span>t</span>
-        <span>a</span>
-        <span>c</span>
-        <span>t</span>
-    </h1>
-
-    <div class="row">
-
-        <div class="image">
-            <img src="contact-img.svg" alt="">
+    <div class="contact-inner">
+        <div class="contact-info">
+            <div class="section-label light">Get In Touch</div>
+            <h2 class="section-title light">Let's Plan<br><em>Together</em></h2>
+            <p>Our travel specialists are ready to craft your perfect itinerary. Reach out and let's start the conversation.</p>
+            <div class="contact-details">
+                <div><i class="fas fa-phone"></i> +1 (800) 926-3538</div>
+                <div><i class="fas fa-envelope"></i> hello@wanderlux.com</div>
+                <div><i class="fas fa-map-marker-alt"></i> 42 Mayfair Lane, London</div>
+            </div>
         </div>
-
-        <form action="">
-            <div class="inputBox">
-                <input type="text" placeholder="name">
-                <input type="email" placeholder="email">
+        <form class="contact-form">
+            <div class="form-row-2">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Email Address">
             </div>
-            <div class="inputBox">
-                <input type="number" placeholder="number">
-                <input type="text" placeholder="subject">
+            <div class="form-row-2">
+                <input type="tel" placeholder="Phone Number">
+                <input type="text" placeholder="Subject">
             </div>
-            <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
-            <input type="submit" class="btn" value="send message">
+            <textarea placeholder="Tell us about your dream destination…" rows="5"></textarea>
+            <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
         </form>
-
     </div>
-    
 </section>
 
-<!-- contact section ends -->
-
-<!-- brand section  -->
-<section class="brand-container">
-
-    <div class="swiper-container brand-slider">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="2.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="3.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="4.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="5.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="6.jpg" alt=""></div>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="logo-footer">WANDERLUX</div>
+            <p>Curating extraordinary travel experiences for the discerning explorer since 2009.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Destinations</h4>
+            <a href="#">Europe</a>
+            <a href="#">Asia Pacific</a>
+            <a href="#">Americas</a>
+            <a href="#">Middle East</a>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#book">Book Now</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Travel Insurance</a>
+            <a href="#">Cancellation Policy</a>
+            <a href="#">Privacy Policy</a>
         </div>
     </div>
-
-</section>
-
-<!-- footer section  -->
-
-<section class="footer">
-
-    <div class="box-container">
-
-        <div class="box">
-            <h3>about us</h3>
-            <p> Our Website typically aggregate information from various travel suppliers and present it to users in an organized and user-friendly format,
-                 making it easier for travelers to compare prices, schedules, and other details.</p>
-        </div>
-        <div class="box">
-            <h3>branch locations</h3>
-            <a href="#">india</a>
-            <a href="#">USA</a>
-            <a href="#">japan</a>
-            <a href="#">france</a>
-        </div>
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="#">home</a>
-            <a href="#">book</a>
-            <a href="#">packages</a>
-            <a href="#">services</a>
-            <a href="#">gallery</a>
-            <a href="#">review</a>
-            <a href="#">contact</a>
-        </div>
-        <div class="box">
-            <h3>follow us</h3>
-            <a href="#">facebook</a>
-            <a href="#">instagram</a>
-            <a href="#">twitter</a>
-            <a href="#">linkedin</a>
-        </div>
-
+    <div class="footer-bottom">
+        <p>© 2025 Wanderlux. All rights reserved. Crafted with <i class="fas fa-heart"></i> for explorers worldwide.</p>
     </div>
-
-    <h1 class="credit"> created by <span> Boss Clizt </span> | all rights reserved! </h1>
-
-</section>
+</footer>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- custom js file link  -->
 <script src="Final.js"></script>
-
 </body>
 </html>
